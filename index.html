@@ -157,13 +157,15 @@ body.entered .zi{animation:zin 1s var(--d,.4s) backwards cubic-bezier(.22,1,.36,
 .tt{grid-column:1;align-self:center;position:relative;z-index:3}
 .hey{font:500 clamp(1.1rem,2vw,1.6rem) "Space Grotesk";color:rgba(255,255,255,.8);margin-bottom:10px}
 .big{font-size:clamp(2.6rem,6.4vw,5.4rem);line-height:.98;letter-spacing:-.03em;margin:0}
-.pt2{grid-column:2;align-self:end;justify-self:center;position:relative;width:min(100%,340px);aspect-ratio:3/4;border-radius:170px 170px 0 0;overflow:hidden;display:grid;place-items:end center;border:1px solid rgba(125,211,252,.25);background:radial-gradient(circle at 50% 22%,rgba(186,230,253,.75),rgba(2,132,199,.4) 52%,rgba(2,11,26,.7));box-shadow:0 0 90px rgba(56,189,248,.35)}
-.pt2 span{font:700 200px/.85 "Space Grotesk";opacity:.9}
-.pt2 img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.pt2{--tint:.5;position:absolute;right:12%;bottom:0;z-index:1;height:100%;max-width:70%;aspect-ratio:880/1206;-webkit-mask-image:radial-gradient(ellipse 72% 78% at 50% 44%,#000 58%,transparent 100%);mask-image:radial-gradient(ellipse 72% 78% at 50% 44%,#000 58%,transparent 100%)}
+.pt2 img{display:block;width:100%;height:100%;object-fit:cover;filter:saturate(.8) contrast(1.05)}
+.pt2:after{content:"";position:absolute;inset:0;pointer-events:none;mix-blend-mode:color;opacity:var(--tint);background:linear-gradient(180deg,#38bdf8,#0284c7)}
+.pt2 span{display:none}.pt2.nop{width:340px;aspect-ratio:3/4}.pt2.nop span{display:grid;place-items:end center;height:100%;font:700 220px/.85 "Space Grotesk"}
+.big{text-shadow:0 2px 36px rgba(2,11,26,.55)}
 .rt{grid-column:3;align-self:center;position:relative;z-index:3}
 .rt h3{font-size:clamp(1.3rem,2vw,1.7rem);line-height:1.15;margin-bottom:14px}
 .rt p{font-size:14px;color:rgba(255,255,255,.65)}
-.nums{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:34px;padding-top:22px;border-top:1px solid var(--line)}
+.nums{grid-column:1/-1;position:relative;z-index:3;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:34px;padding-top:22px;border-top:1px solid var(--line)}
 .no{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--v)}
 .no i{width:7px;height:7px;border-radius:50%;background:var(--v);box-shadow:0 0 10px var(--v)}
 .nums b{display:block;margin-top:8px;font:500 15px "Space Grotesk";color:rgba(255,255,255,.85)}
@@ -180,7 +182,7 @@ body.entered .zi{animation:zin 1s var(--d,.4s) backwards cubic-bezier(.22,1,.36,
 .bar2{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:34px}.bar2 small{font-size:12px;line-height:1.35;color:rgba(255,255,255,.55)}
 @media(max-width:860px){
  .ahero{grid-template-columns:1fr;grid-template-rows:auto;min-height:auto;padding:100px 24px 28px;gap:28px 0}
- .tt,.pt2,.rt,.nums{grid-column:1}.pt2{width:260px}.nums{grid-template-columns:1fr 1fr;margin-top:8px}
+ .tt,.pt2,.rt,.nums{grid-column:1}.pt2{position:relative;right:auto;height:auto;width:min(100%,340px);max-width:none;margin:0 auto}.nums{grid-template-columns:1fr 1fr;margin-top:8px}
  .beh{grid-template-columns:1fr;padding:70px 24px;gap:36px}.trust{gap:28px;padding:18px 22px}
 }
 body.intro{overflow:hidden}
@@ -232,7 +234,7 @@ body.intro .core{opacity:0;transform:scale(.4)}
 <section id="about">
   <div class="ahero">
     <div class="tt"><p class="hey zi" style="--d:.5s">Hey, I'm Akash, a</p><h2 class="big zi" style="--d:.65s">Business<br>Intelligence<br><span class="grad">Analyst.</span></h2></div>
-    <div class="pt2 zi" style="--d:.85s"><span class="grad">A</span><img src="akash.webp" alt="Akash" onerror="this.remove()"></div><!-- TODO: add your photo as akash.webp -->
+    <div class="pt2 zi" style="--d:.85s"><span class="grad">A</span><img src="akash.webp" alt="Akash" onerror="this.parentNode.classList.add('nop');this.remove()"></div>
     <div class="rt zi" style="--d:1.05s"><h3>Clear numbers.<br>Confident decisions.</h3><p>I sit at the intersection of business operations and financial strategy, converting high-volume operational metrics into clear financial models that drive top-line growth and margin expansion.</p></div>
     <div class="nums zi" style="--d:1.25s">
       <div><small class="no"><i></i>01</small><b>Financial Analysis &amp; Modeling</b></div>
