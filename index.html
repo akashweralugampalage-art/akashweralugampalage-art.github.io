@@ -96,6 +96,7 @@ h1 span{display:inline-block;margin-right:12px;opacity:0;filter:blur(8px);transf
 .bar{margin-bottom:16px}.bar div:first-child{display:flex;justify-content:space-between;font-size:14px;color:rgba(255,255,255,.7);margin-bottom:6px}
 .trk{height:6px;border-radius:9px;background:rgba(255,255,255,.1);overflow:hidden}.trk i{display:block;height:100%;width:0;border-radius:9px;background:linear-gradient(90deg,var(--v),var(--c));transition:width 1.2s ease-out}
 /* projects */
+.grid3.g2{grid-template-columns:repeat(2,1fr)}
 .pj{cursor:pointer;height:100%}.pj:hover{transform:translateY(-4px)}
 .pt{height:170px;display:flex;align-items:flex-end;gap:8px;padding:0 24px;overflow:hidden;background:linear-gradient(135deg,rgba(2,132,199,.4),rgba(14,165,233,.2),rgba(34,211,238,.3))}
 .pt i{flex:1;background:rgba(255,255,255,.3);border-radius:4px 4px 0 0;transition:transform .5s;transform-origin:bottom}.pj:hover .pt i{transform:scaleY(1.15)}
@@ -199,7 +200,7 @@ body.intro .core{opacity:0;transform:scale(.4)}
  header{padding:14px 20px}nav,.ic .lk{display:none}#menu{display:block}
  nav.o{display:flex;position:fixed;inset:0;flex-direction:column;align-items:center;justify-content:center;gap:20px;border-radius:0;background:rgba(2,11,26,.96)}nav.o a{font:36px "Space Grotesk"}
  .hw,.ab,.cx{grid-template-columns:1fr}
- .grid3{grid-template-columns:1fr}.w2{grid-column:auto}.ch,.kp{grid-template-columns:1fr}
+ .grid3,.grid3.g2{grid-template-columns:1fr}.w2{grid-column:auto}.ch,.kp{grid-template-columns:1fr}
  .tl:before,.tl .fill{left:12px}.ex,.ex:nth-child(odd){width:100%;margin:0 0 40px;padding:0 0 0 40px}.ex .d,.ex:nth-child(odd) .d{left:5px;right:auto}
  #glow{display:none}footer{padding:24px 20px}
 }
@@ -259,7 +260,7 @@ body.intro .core{opacity:0;transform:scale(.4)}
 
 <section id="skills"><h2 class="rv">Skills</h2><p class="sub rv">Tools and methods I use to move from raw data to a decision.</p><div class="grid3" id="sk"></div></section>
 
-<section id="projects"><h2 class="rv">Projects</h2><p class="sub rv">Selected case studies. Click one for the full story.</p><div class="grid3" id="pj"></div></section>
+<section id="projects"><h2 class="rv">Projects</h2><p class="sub rv">Selected projects. Click one to learn more.</p><div class="grid3 g2" id="pj"></div></section>
 
 <section id="playground"><h2 class="rv">Data playground</h2><p class="sub rv">A live mini dashboard. Change the filters and watch every chart update. (Sample data.)</p>
   <div class="glass pg rv">
@@ -297,11 +298,9 @@ const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const tools=["PBI","Tb","SQL","Py","XLS","Snow","dbt","Az","Lk","Git"];
 const journey=["Collect","Clean","Model","Visualize","Decide"];
 const skills=[["Data visualization",[["Power BI",92],["Tableau",85],["Looker",75]]],["Databases and SQL",[["SQL",95],["Snowflake",80],["PostgreSQL",82]]],["Programming",[["Python",85],["Pandas / NumPy",84],["DAX",90]]],["ETL and modeling",[["dbt",78],["Star schema design",88],["Power Query",90]]],["Cloud",[["Azure",74],["AWS",70],["Git",80]]],["Finance and operations",[["DCF and forecasting",90],["Variance analysis",92],["Scenario planning",88]]]];
-const projects=[ // TODO: replace all projects
- {t:"Sales Performance Command Centre",im:"Cut weekly reporting time by 60%",tools:["Power BI","SQL","DAX"],w:1,pr:"Sales leaders waited days for spreadsheets that were already out of date.",ap:"Built a star-schema model and a refreshable executive dashboard with drill-through by region and rep.",re:"Weekly reporting went from 2 days to under 1 hour.",in:["Top 20% of accounts drove 64% of revenue","Discounting above 15% cut margin without lifting volume"],link:"#"},
- {t:"Customer Churn Explorer",im:"Flagged at-risk accounts 30 days earlier",tools:["Python","Tableau"],pr:"Churn was only visible after customers had already left.",ap:"Engineered usage features, scored accounts and surfaced risk tiers in Tableau.",re:"Retention team contacted high-risk accounts a month sooner.",in:["Drop in weekly logins was the strongest signal","Support tickets spiked 2 weeks before churn"],link:"#"},
- {t:"Finance KPI Warehouse",im:"Single source of truth for 12 teams",tools:["Snowflake","dbt","Looker"],pr:"Every team defined revenue and margin differently.",ap:"Centralised metric definitions in dbt and exposed governed explores in Looker.",re:"One set of numbers across finance, sales and ops.",in:["Reconciled 3 conflicting revenue definitions","Cut ad-hoc data requests by 40%"],link:"#"},
- {t:"Supply Chain Delay Tracker",im:"Reduced late deliveries by 18%",tools:["Excel","SQL","Power BI"],w:1,pr:"Delays were discovered only after customers complained.",ap:"Joined carrier, warehouse and order data into a live delay-risk dashboard.",re:"Ops reallocated stock proactively on risky lanes.",in:["Two carriers caused 70% of delays","Friday dispatches were 2x more likely to slip"],link:"#"}];
+const projects=[ // TODO: add real details and the exact repo links
+ {t:"FreshMart",im:"Featured project · full code on GitHub",tools:[],d:"FreshMart is one of my featured projects. Explore the code, data and documentation on GitHub.",link:"https://github.com/akashweralugampalage-art?tab=repositories"},
+ {t:"Food Delivery Analytics",im:"Featured analytics project · full code on GitHub",tools:[],d:"A food delivery analytics project. Explore the analysis, code and documentation on GitHub.",link:"https://github.com/akashweralugampalage-art?tab=repositories"}];
 const exp=[["Senior BI Analyst","Company Name","2023 – Present",["Own executive reporting across sales and finance","Led migration of 30+ reports to Power BI"]],["Business Intelligence Analyst","Company Name","2021 – 2023",["Built SQL pipelines and star-schema models","Automated weekly KPI packs"]],["Data Analyst","Company Name","2019 – 2021",["Cleaned and analysed operational data in Excel and Python","Delivered first self-serve dashboards"]]];
 const certs=["Microsoft PL-300 Power BI Analyst","Tableau Desktop Specialist","Google Data Analytics","SnowPro Core","Azure Data Fundamentals","dbt Fundamentals"];
 /* ================================== */
@@ -317,7 +316,7 @@ $("#yr").textContent=new Date().getFullYear();
 
 /* modal */
 const md=$("#modal");
-function open(i){const p=projects[i];$("#mb").innerHTML=`<button class="x" aria-label="Close">×</button><h3 style="font-size:28px;padding-right:30px">${p.t}</h3><p style="color:var(--c)">${p.im}</p><h4>Problem</h4><p>${p.pr}</p><h4>Approach</h4><p>${p.ap}</p><h4>Result</h4><p>${p.re}</p><h4>Insights</h4><ul>${p.in.map(x=>`<li>${x}</li>`).join("")}</ul><div style="margin:20px 0">${p.tools.map(t=>`<span class="chip">${t}</span>`).join("")}</div><a class="btn p" href="${p.link}">Open live dashboard ↗</a>`;md.classList.add("on");$("#mb .x").onclick=close}
+function open(i){const p=projects[i],sec=(h,t)=>t?`<h4>${h}</h4><p>${t}</p>`:"";$("#mb").innerHTML=`<button class="x" aria-label="Close">×</button><h3 style="font-size:28px;padding-right:30px">${p.t}</h3><p style="color:var(--c)">${p.im}</p>${p.d?`<p style="margin-top:16px">${p.d}</p>`:""}${sec("Problem",p.pr)}${sec("Approach",p.ap)}${sec("Result",p.re)}${p.in?`<h4>Insights</h4><ul>${p.in.map(x=>`<li>${x}</li>`).join("")}</ul>`:""}<div style="margin:20px 0">${p.tools.map(t=>`<span class="chip">${t}</span>`).join("")}</div><a class="btn p" href="${p.link}" target="_blank" rel="noopener">View on GitHub ↗</a>`;md.classList.add("on");$("#mb .x").onclick=close}
 const close=()=>md.classList.remove("on");
 md.onclick=e=>{if(e.target===md)close()};addEventListener("keydown",e=>e.key==="Escape"&&close());
 $("#pj").onclick=e=>{const c=e.target.closest(".pj");if(c)open(c.dataset.i)};
